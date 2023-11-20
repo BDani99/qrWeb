@@ -1,0 +1,27 @@
+.det {
+   margin-top: 50px;
+   margin-left: 350px;
+   margin-right: 350px;
+}
+
+.desc{
+    padding: 15px;
+}
+
+.buy-button{
+    height: 40px;
+    width: 100px;
+    background-color: #79D74D;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin-top: 80px;
+    cursor: pointer;
+  }
+  
+  .buy-button:hover {
+    background-color: #5aa941;
+  }

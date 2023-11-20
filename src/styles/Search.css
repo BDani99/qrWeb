@@ -1,0 +1,32 @@
+.search-bar {
+    margin-left: 550px;
+    margin-top: 40px;
+}
+
+.field {
+    width: 200px;
+    height: 40px;
+    border: none;
+    background: #EFEFEF;
+    border-radius: 20px;
+    margin: 10px;
+    padding-left: 20px;
+    color: #3b3b3b;
+}
+
+.field::placeholder {
+    text-align: center;
+    padding-right: 20px;
+  }
+
+  .search-button {
+    width: 100px;
+    height: 40px;
+    background: #FAC745;
+    border: none;
+    border-radius: 20px;
+    margin-left: 20px;
+    color: #3b3b3b;
+    font-weight: bold;
+    cursor: pointer;
+  }

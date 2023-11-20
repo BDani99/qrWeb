@@ -1,0 +1,25 @@
+.contents {
+    margin-left: 350px;
+}
+
+  .content {
+    margin-left: 100px;
+    margin-top: 25px;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .small {
+    width: 270px;
+    height: 150px;
+    border-radius: 30px;
+  }
+
+  .contents p {
+    max-width: 260px;
+    margin-left: 10px;
+  }
+
+  .date {
+    font-size: 8;
+  }

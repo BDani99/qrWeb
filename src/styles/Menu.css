@@ -1,0 +1,29 @@
+.menu-container {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+  
+  .menu-item {
+    width: calc(20% - 2px);
+    padding: 10px;
+    border: 1px solid #6b6b6b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #758C92;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .menu-item:first-child {
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .menu-item:last-child {
+    border-radius: 0 20px 20px 0;
+  }
+  

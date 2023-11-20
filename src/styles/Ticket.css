@@ -1,0 +1,28 @@
+
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 740px;
+    height: 320px;
+    margin: 0 auto;
+    margin-top: 40px;
+    border-radius: 30px;
+}
+
+.koncert {
+    display: flex;
+    flex-direction: row;
+}
+
+.koncert p {
+    margin-left: 360px;
+    padding: 4px;
+}
+
+.qr {
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+    margin-left: 750px;
+}

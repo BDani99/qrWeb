@@ -1,0 +1,39 @@
+.content2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+  }
+  
+  .rectangle {
+    width: 900px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #4C7A6F;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+  
+  .left-image {
+    width: 340px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px 0 0 20px;
+  }
+  
+  .text {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .text p {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .right-image {
+    width: 200px;
+    height: 180px;
+    object-fit: cover;
+  }
