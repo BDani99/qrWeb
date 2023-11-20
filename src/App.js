@@ -16,7 +16,9 @@ function App() {
     <Router>
       <Menu />
       <Switch>
-        <Route path="/események" component={Events} />
+        <Route exact path="/">
+          <Events />
+        </Route>
         <Route path="/jegyeim" component={Tickets} />
         <Route path="/profil" component={Profile} />
         <Route path="/információk" component={Info} />
