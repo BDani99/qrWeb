@@ -31,12 +31,16 @@ const Buying = () => {
     <div className="buying-form">
       {isPurchased ? (
         <div>
-          {ticketIds.map((ticketId, index) => (
-            <div key={index}>
-              <p>QR Code {index + 1}:</p>
-              <QRCode value={ticketId} />
-            </div>
-          ))}
+        {ticketIds.map((ticketId, index) => (
+  <div className='asd' key={index}>
+    <div className='image'>kép</div>
+    <div className='kinfo'>
+      <div>koncert neve</div>
+      <div>koncert időpontja</div>
+    </div>
+    <QRCode className='qrkod' value={ticketId} />
+  </div>
+))}
         </div>
       ) : (
         <>

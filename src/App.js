@@ -6,10 +6,11 @@ import Events from '../src/pages/Events';
 import Tickets from '../src/pages/Tickets';
 import Profile from '../src/pages/Profile';
 import Info from '../src/pages/Info';
-import Contact from '../src/pages/Contact';
+//import Contact from '../src/pages/Contact';
 import Ticket from '../src/pages/Ticket';
 import Details from '../src/pages/Details';
 import Buying from '../src/pages/Buying';
+import Login from '../src/pages/Login';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path="/jegyeim" component={Tickets} />
         <Route path="/profil" component={Profile} />
         <Route path="/információk" component={Info} />
-        <Route path="/kapcsolat" component={Contact} />
+        <Route path="/kapcsolat" component={Login} />
         <Route path="/ticket" component={Ticket} />
         <Route path="/details" component={Details} />
         <Route path="/buying" component={Buying} />

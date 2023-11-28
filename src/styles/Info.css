@@ -1,0 +1,34 @@
+
+  .infotitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    width: 850px;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+  
+  .info p {
+    width: 850px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+  
+  .info ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 850px;
+    margin: 0 auto;
+  }
+  
+  .info li {
+    margin-top: 10px;
+  }
+  
+  .info h3{
+    width: 850px;
+    margin: 0 auto;
+  }
