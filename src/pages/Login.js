@@ -1,39 +1,73 @@
-// Login.js
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import loginApi from '../api/login.js';
+import '../styles/Login.css';
 
-import React, { useState } from "react";
-import "../styles/Login.css";
+const Login = ({ onLogin }) => {
+  const [formData, setFormData] = useState({
+    email: '',
+    password: ''
+  });
+  const history = useHistory();
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-  const handleLogin = () => {
-    // Itt végezheted el a bejelentkezési logikát
-    console.log("Bejelentkezés:", email, password);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const result = await loginApi(formData.email, formData.password);
+
+      if (result.success) {
+        console.log('Sikeres bejelentkezés');
+        onLogin();
+        history.push('/');
+        sessionStorage.setItem('userId', result.userId);
+        sessionStorage.setItem('accessToken', result.accessToken); // Módosítás: hozzáadva az accessToken
+      } else {
+        console.error('Bejelentkezés sikertelen:', result.error);
+      }
+    } catch (error) {
+      console.error('Hiba a bejelentkezés során:', error);
+    }
   };
 
   return (
     <div className="container">
-      <h2 className="title2">Bejelentkezés</h2>
-      <div className="input-container">
-        <input
-          type="text"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="input-container">
-        <input
-          type="password"
-          placeholder="Jelszó"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
-      <button className="login-button" onClick={handleLogin}>
-        Bejelentkezés
-      </button>
+      <h1 className="title2">Bejelentkezés</h1>
+      <div className="line"></div>
+      <form className="input-container" onSubmit={handleSubmit}>
+        <label className="login-label">
+          <input
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="login-input"
+            placeholder="Email"
+          />
+        </label>
+        <br />
+        <label className="login-label">
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className="login-input"
+            placeholder="Jelszó"
+          />
+        </label>
+        <br />
+        <button type="submit" className="login-button">
+          Bejelentkezés
+        </button>
+        <p className="login-link">
+          Még nincs fiókja? <Link to="/registration">Regisztráljon itt</Link>
+        </p>
+      </form>
     </div>
   );
 };
