@@ -11,14 +11,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000000;
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+
 }
 
 
   .menu-item.selected {
-    background: rgba(255, 255, 255, 0.6);
-    color: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.35);
+    color: #fff;
   }
 

@@ -3,13 +3,13 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.15);
     padding: 0 20px;
   }
   
   .logout-button {
     padding: 8px 12px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.85);
     color: red;
     border: none;
     cursor: pointer;
@@ -23,10 +23,3 @@ header {
     width: 100%;
     
 }
-  
-  @media (max-width: 768px) {
-    header {
-      flex-direction: column;
-    }
-  }
-  
