@@ -36,9 +36,8 @@ const Login = ({ onLogin }) => {
   };
 
   return (
-    <div className="container">
+    <div className="login-container">
       <h1 className="title2">Bejelentkezés</h1>
-      <div className="line"></div>
       <form className="input-container" onSubmit={handleSubmit}>
         <label className="login-label">
           <input

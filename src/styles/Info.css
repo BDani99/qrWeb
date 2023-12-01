@@ -7,6 +7,10 @@
     padding-top: 20px;
   }
   
+  .info {
+    color: white;
+  }
+  
   .info p {
     width: 850px;
     margin: 0 auto;

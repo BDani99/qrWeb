@@ -5,7 +5,6 @@ const Info = () => {
     return (
       <div className="info">
         <h2 className="title">Információk</h2>
-        <div className="line"></div>
         <h2 className="infotitle">Rólunk</h2>
         <p>
           A weboldal egy qr kód alapú jegyértékesítési oldal, amely megkönnyíti a jegyek vásárlását és felhasználását. A weboldalon keresztül a felhasználók gyorsan és egyszerűen vásárolhatnak jegyet bármilyen rendezvényre, legyen szó koncertről, sporteseményről, kulturális programról vagy bármi másról.

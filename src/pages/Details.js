@@ -20,9 +20,9 @@ const Details = () => {
            Qui nesciunt sint ad esse perferendis sit voluptatem nesciunt est debitis inventore et vitae tempora et sequi internos. Ex quos inventore et excepturi consequatur est tempora temporibus sit laborum laborum aut nostrum possimus eos ratione corrupti et laboriosam iste. Et natus voluptates est consectetur voluptatem ab laborum molestias non repellat dolores eum rerum voluptatem et ratione dolore! Ab quae molestiae in culpa voluptatem ut laborum tempora aut unde nisi ut tempora similique.
            Cum doloribus facere est accusamus molestiae et explicabo modi sed dolore molestias. Ea possimus esse eos perferendis repellendus ut temporibus nisi.</p>
         <div>
-          <button className='buy-button' onClick={handleButtonClick}>Vásárlás</button>
         </div>
       </div>
+      <button className='buy-button' onClick={handleButtonClick}>Vásárlás</button>
     </div>
   );
 };

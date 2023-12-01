@@ -1,0 +1,32 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0 20px;
+  }
+  
+  .logout-button {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: red;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 11px;
+  }
+  
+  .menuc {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    
+}
+  
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+  }
+  

@@ -27,7 +27,6 @@ const Events = () => {
     <div>
       <Search />
       <h2 className="title">Kiemelt Ajánlatok</h2>
-      <div className="line"></div>
       <div className="contents">
         {eventData.map((event, index) => (
           <Link to="/details" key={index} className="content">

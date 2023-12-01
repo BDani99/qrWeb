@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import api from '../api/register';
+import '../styles/Registration.css';
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +12,8 @@ const Registration = () => {
     address: '',
     placeOfBirth: '',
   });
+
+  const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,7 +35,7 @@ const Registration = () => {
 
       if (result.success) {
         console.log('Sikeres regisztráció:', result);
-        // Ide add hozzá a routing logikát, ha sikeres a regisztráció
+        history.push('/login');
       } else {
         console.error('Regisztráció sikertelen:', result.error);
       }
@@ -40,10 +44,10 @@ const Registration = () => {
     }
   };
 
+
   return (
     <div className="reg-container">
-      <h1 className="title">Regisztráció</h1>
-      <div className="line"></div>
+      <h1 className="title2">Regisztráció</h1>
       <form className="reg-form" onSubmit={handleSubmit}>
         <label className="reg-label">
           <input

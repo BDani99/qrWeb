@@ -10,8 +10,10 @@
     height: 200px;
     display: flex;
     align-items: center;
-    border: 1px solid #4C7A6F;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
     border-radius: 20px;
+    padding: 5px;
     text-decoration: none;
   }
   
@@ -36,4 +38,8 @@
     width: 200px;
     height: 180px;
     object-fit: cover;
+  }
+
+  .koncert{
+    color: white;
   }

@@ -8,7 +8,6 @@ const Tickets = () => {
   return (
     <div>
       <h2 className="title">Saját jegyek</h2>
-      <div className="line"></div>
       <div className="content2">
         <Link to="/ticket" className="rectangle">
           <img className="left-image" src={Azi} alt="nothing" />

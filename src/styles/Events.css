@@ -1,5 +1,10 @@
 .contents {
     margin-left: 350px;
+    margin-right: 350px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    border-radius: 8px;
+    margin-top: 30px;
 }
 
   .content {
@@ -18,6 +23,7 @@
   .contents p {
     max-width: 260px;
     margin-left: 10px;
+    color: white;
   }
 
   .date {

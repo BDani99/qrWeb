@@ -44,19 +44,7 @@ const Buying = () => {
         </div>
       ) : (
         <>
-          <div className="textfield">
-            <input type="text" placeholder="Név" />
-          </div>
-          <div className="textfield">
-            <input type="text" placeholder="Születési hely" />
-          </div>
-          <div className="textfield">
-            <input type="text" placeholder="Születési dátum" />
-          </div>
-          <div className="textfield">
-            <input type="text" placeholder="Lakcím" />
-          </div>
-          <div className="db">
+        <div className="db">
             <p>*** koncert db</p>
             <button onClick={decrementTicketCount}>
               <BiMinus />
@@ -64,13 +52,11 @@ const Buying = () => {
             <span>{ticketCount}</span>
             <button onClick={incrementTicketCount}>
               <BiPlus />
-            </button>
+            </button> 
           </div>
-          <div>
-            <button className="buy-button" onClick={handlePurchase}>
+          <button className="buy-button" onClick={handlePurchase}>
               Vásárlás
             </button>
-          </div>
         </>
       )}
     </div>
