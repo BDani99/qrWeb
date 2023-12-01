@@ -3,9 +3,10 @@ import "../styles/Info.css"
 
 const Info = () => {
     return (
-      <div className="info">
-        <h2 className="title">Információk</h2>
-        <h2 className="infotitle">Rólunk</h2>
+      <div>
+        <h2 className="info-title">Információk</h2>
+        <div className="info">
+        <h3>Rólunk</h3>
         <p>
           A weboldal egy qr kód alapú jegyértékesítési oldal, amely megkönnyíti a jegyek vásárlását és felhasználását. A weboldalon keresztül a felhasználók gyorsan és egyszerűen vásárolhatnak jegyet bármilyen rendezvényre, legyen szó koncertről, sporteseményről, kulturális programról vagy bármi másról.
         </p>
@@ -15,13 +16,14 @@ const Info = () => {
         <p>
           A csapata elkötelezett amellett, hogy a legjobb jegyértékesítési élményt nyújtsa a felhasználóinak. A weboldalt folyamatosan fejlesztik, hogy még jobb legyen a felhasználói élmény.
         </p>
-        <h3>A weboldal előnyei</h3>
+        <h4>A weboldal előnyei</h4>
         <ul>
           <li>Gyors és egyszerű jegyvásárlás</li>
           <li>Egyszerű belépés a rendezvényekre</li>
           <li>Széleskörű rendezvénykínálat</li>
           <li>Folyamatos fejlesztés</li>
         </ul>
+        </div>
       </div>
     );
 }

@@ -58,3 +58,12 @@
     margin-right: 10px;
   }
   
+  .successful {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #6ac054;
+    color: white;
+  }

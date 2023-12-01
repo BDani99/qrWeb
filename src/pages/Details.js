@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import small from '../assets/small.jpg';
 import '../styles/Details.css';
 
 const Details = () => {
   const history = useHistory();
+  const [showButton] = useState(false);
 
   const handleButtonClick = () => {
     history.push('/buying');
@@ -22,7 +23,15 @@ const Details = () => {
         <div>
         </div>
       </div>
-      <button className='buy-button' onClick={handleButtonClick}>Vásárlás</button>
+      {!showButton && (
+        <button className='buy-button' onClick={handleButtonClick}>Vásárlás</button>
+      )}
+      {showButton && (
+        <button className='delete-button' onClick={() => console.log('Button clicked!')}>Esemény törlése</button>
+      )}
+      {showButton && (
+        <button className='edit-button' onClick={() => console.log('Button clicked!')}>Esemény szerkesztése</button>
+      )}
     </div>
   );
 };

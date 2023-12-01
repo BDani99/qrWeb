@@ -29,3 +29,18 @@
   .date {
     font-size: 8;
   }
+
+.event-add{
+    height: 40px;
+    width: 200px;
+    margin-left: 350px;
+    background-color: #79D74D;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    margin-top: 40px;
+    cursor: pointer;
+}

@@ -13,6 +13,9 @@ const Registration = () => {
     placeOfBirth: '',
   });
 
+  const [showCheckbox, setShowCheckbox] = useState(true);
+  const [showButton] = useState(false);
+
   const history = useHistory();
 
   const handleChange = (e) => {
@@ -43,7 +46,6 @@ const Registration = () => {
       console.error('Hiba a regisztráció során:', error);
     }
   };
-
 
   return (
     <div className="reg-container">
@@ -115,9 +117,28 @@ const Registration = () => {
           />
         </label>
         <br />
-        <button type="submit" className="reg-button">
-          Regisztráció
-        </button>
+        {showButton && (
+          <div className="checkbox-container">
+            <label className="checkbox-label">
+              <input
+                type="checkbox"
+                checked={showCheckbox}
+                onChange={() => setShowCheckbox(!showCheckbox)}
+                className="checkbox-input"
+              />
+              Admin Regisztráció
+            </label>
+          </div>
+        )}
+        <br />
+        {!showButton && (
+          <button type="submit" className="reg-button">
+            Regisztráció
+          </button>   
+        )}
+        {showButton && (
+        <button className='reg-button' onClick={() => console.log('Button clicked!')}>Regisztráció</button>
+      )}
       </form>
     </div>
   );

@@ -40,3 +40,12 @@
     border-radius: 10px;
     border: 1px solid #ccc;
   }
+
+  .checkbox-container {
+    margin-top: 10px;
+    color: white;
+  }
+
+  .checkbox-input{
+    display:flexbox;
+  }
