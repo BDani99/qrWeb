@@ -13,9 +13,9 @@ const loginApi = async (email, password) => {
     const data = await response.json();
     console.log('API Response:', data);
 
-    if (response.ok && data.id) {
+    if (response.ok && data.token) {
       console.log('Login successful');
-      return { success: true, userId: data.id, accessToken: data.id }; // Módosítás: hozzáadva az accessToken
+      return { success: true, userId: data.id, accessToken: data.token };
     } else {
       return { success: false, error: data.error || 'Unknown error' };
     }

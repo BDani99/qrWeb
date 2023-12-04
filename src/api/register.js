@@ -1,27 +1,27 @@
-const API_URL = 'http://127.0.0.1:5000';
+const API_URL = 'http://127.0.0.1:5000/register';
 
-const api = {
-  register: async (formData) => {
-    try {
-      const response = await fetch(`${API_URL}/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+const registerApi = async (email, password, name, dateOfBirth, address, placeOfBirth) => {
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password, name, dateOfBirth, address, placeOfBirth }),
+    });
 
-      if (response.ok) {
-        return { success: true };
-      } else {
-        const data = await response.json();
-        return { error: data.error || 'Ismeretlen hiba' };
-      }
-    } catch (error) {
-      console.error('API hiba:', error);
-      return { error: 'Hiba a szerverrel való kommunikáció során' };
+    const data = await response.json();
+    console.log('API Response:', data);
+
+    if (response.ok && data.id) {
+      console.log('Registration successful');
+      return { success: true, userId: data.id };
+    } else {
+      return { success: false, error: data.error || 'Unknown error' };
     }
-  },
+  } catch (error) {
+    return { success: false, error: 'Hiba a szerverrel való kommunikáció során' };
+  }
 };
 
-export default api;
+export default registerApi;

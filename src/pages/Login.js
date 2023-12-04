@@ -26,7 +26,7 @@ const Login = ({ onLogin }) => {
         onLogin();
         history.push('/');
         sessionStorage.setItem('userId', result.userId);
-        sessionStorage.setItem('accessToken', result.accessToken); // Módosítás: hozzáadva az accessToken
+        sessionStorage.setItem('accessToken', result.accessToken);
       } else {
         console.error('Bejelentkezés sikertelen:', result.error);
       }

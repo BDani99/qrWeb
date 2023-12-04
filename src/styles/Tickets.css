@@ -1,45 +1,36 @@
-.content2 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
-  }
-  
-  .rectangle {
-    width: 900px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border-radius: 20px;
-    padding: 5px;
-    text-decoration: none;
-  }
-  
-  .left-image {
-    width: 340px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px 0 0 20px;
-  }
-  
-  .text {
-    flex: 1;
-    text-align: center;
-  }
-  
-  .text p {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .right-image {
-    width: 200px;
-    height: 180px;
-    object-fit: cover;
-  }
+.ticket-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
 
-  .koncert{
-    color: white;
-  }
+.ticket-rectangle {
+  width: 820px;
+  height: 180px;
+  background: rgb(20, 41, 54);
+  color: white;
+  border-radius: 20px;
+  padding: 15px;
+  text-decoration: none;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.ticket-text {
+  flex: 1;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+}
+
+.ticket-text p{
+  padding: 5px;
+}
+
+.qr-code {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  transform: translateY(-50%);
+}

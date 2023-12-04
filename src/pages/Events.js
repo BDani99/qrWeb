@@ -1,48 +1,60 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import fetchEvents from '../api/events';
 import { Link } from 'react-router-dom';
-import Search from '../components/Search';
-import '../styles/Events.css';
-import small from '../assets/small.jpg';
+import '../styles/Events.css'
 
 const Events = () => {
-  const [showButton] = useState(false);
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  const eventData = [
-    {
-      title: 'ISTVÁN, A KIRÁLY - 40. ÉVES JUBILEUMI KONCERT',
-      location: 'Audi Aréna, Győr',
-      date: '2023. december 30.',
-    },
-    {
-      title: 'ISTVÁN, A KIRÁLY - 40. ÉVES JUBILEUMI KONCERT',
-      location: 'Audi Aréna, Győr',
-      date: '2023. december 30.',
-    },
-    {
-      title: 'ISTVÁN, A KIRÁLY - 40. ÉVES JUBILEUMI KONCERT',
-      location: 'Audi Aréna, Győr',
-      date: '2023. december 30.',
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await fetchEvents();
+
+        if (result.success) {
+          setEvents(result.events);
+        } else {
+          setError(result.error);
+        }
+
+        setLoading(false);
+      } catch (error) {
+        console.error('Hiba az események lekérdezésekor:', error);
+        setError('Hiba a szerverrel való kommunikáció során');
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div>
-      <Search />
-      <h2 className="title">Események</h2>
-      <div className="contents">
-        {eventData.map((event, index) => (
-          <Link to="/details" key={index} className="content">
-            <img className="small" src={small} alt="nothing" />
-            <p>{event.title}</p>
-            <p className="date">{event.location + ' ' + event.date}</p>
+    <h1 className="title">Események</h1>
+    <div className="events-container">
+      <div className="events-list">
+        {events.map((event) => (
+          <Link to={`/details/${event.id}`} key={event.id} className="content">
+            <div className="event-item">
+              <p>{event.name}</p>
+              <p>{event.dateOfEvent} - {event.location}</p>
+              <p>{event.description}</p>
+
+            </div>
           </Link>
         ))}
       </div>
-      {showButton && (
-        <button className='event-add' onClick={() => console.log('Button clicked!')}>
-          Esemény hozzáadása
-        </button>
-      )}
+    </div>
     </div>
   );
 };

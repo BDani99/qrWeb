@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import api from '../api/register';
+import registerApi from '../api/register';
+
 import '../styles/Registration.css';
 
 const Registration = () => {
@@ -27,14 +28,14 @@ const Registration = () => {
     e.preventDefault();
 
     try {
-      const result = await api.register({
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-        dateOfBirth: formData.dateOfBirth,
-        address: formData.address,
-        placeOfBirth: formData.placeOfBirth,
-      });
+      const result = await registerApi( 
+        formData.email,
+        formData.password,
+        formData.name,
+        formData.dateOfBirth,
+        formData.address,
+        formData.placeOfBirth
+      );
 
       if (result.success) {
         console.log('Sikeres regisztráció:', result);
@@ -46,6 +47,7 @@ const Registration = () => {
       console.error('Hiba a regisztráció során:', error);
     }
   };
+
 
   return (
     <div className="reg-container">

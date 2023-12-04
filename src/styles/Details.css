@@ -1,20 +1,53 @@
-.det {
-   margin-top: 50px;
-   margin-left: 350px;
-   margin-right: 350px;
-   color: white;
-   padding: 12px;
-   background: rgba(0, 0, 0, 0.6);
-   border-radius: 8px;
+
+.valami {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 600px;
+  border-radius: 10px;
+  color: white;
+  margin-top: 30px;
 }
 
-.desc{
-    padding: 15px;
+.asd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 600px;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  border-radius: 10px;
+  margin-top: 30px;
 }
 
-.buy-button, .delete-button, .edit-button{
+.image {
+  margin-right: 185px;
+  margin-left: 10px;
+}
+
+.kinfo {
+  text-align: center;
+}
+
+.qrkod {
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.successful {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #6ac054;
+  color: white;
+}
+
+.buy-button{
     height: 40px;
-    margin-left: 350px;
     border-radius: 20px;
     color: white;
     font-weight: bold;
@@ -23,24 +56,10 @@
     border: none;
     margin-top: 40px;
     cursor: pointer;
-  }
-
-  .buy-button{
     width: 100px;
     background-color: #79D74D;
   }
   
   .buy-button:hover {
     background-color: #5aa941;
-  }
-
-  .delete-button{
-    width: 200px;
-    background-color: red;
-  }
-
-  .edit-button{
-    margin-left: 30px;
-    width: 200px;
-    background-color: orange;
   }

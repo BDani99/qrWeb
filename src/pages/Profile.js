@@ -9,12 +9,23 @@ const Profile = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await api.getMe();
+        const accessToken = sessionStorage.getItem('accessToken');
+        const userId = sessionStorage.getItem('userId'); // Új sor: userId lekérése a sessionStorage-ból
+        console.log("token: " + accessToken)
+        
+        if (!accessToken) {
+          setError('Access token not available');
+          setLoading(false);
+          return;
+        }
 
+        const result = await api.getCurrentUser(accessToken, userId); // Módosítás: userId paraméter átadása a getCurrentUser függvénynek
+        
         if (result.success) {
           setUserData(result.user);
+          
         } else {
-          setError(result.error);
+          setError(result.error || 'Unknown error');
         }
 
         setLoading(false);
@@ -34,6 +45,10 @@ const Profile = () => {
 
   if (error) {
     return <div>Error: {error}</div>;
+  }
+
+  if (!userData) {
+    return <div>No user data available</div>;
   }
 
   return (
