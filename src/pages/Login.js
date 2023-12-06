@@ -17,16 +17,25 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
       const result = await loginApi(formData.email, formData.password);
-
+  
       if (result.success) {
         console.log('Sikeres bejelentkezés');
         onLogin();
-        history.push('/');
-        sessionStorage.setItem('userId', result.userId);
-        sessionStorage.setItem('accessToken', result.accessToken);
+  
+        if (result.data.token) {
+          sessionStorage.setItem('userId', result.data.id);
+          sessionStorage.setItem('accessToken', result.data.token);
+        }
+  
+        if (result.data.admin) {
+          history.push('/');
+          console.log('Admin belépés');
+        } else {
+          history.push('/');
+        }
       } else {
         console.error('Bejelentkezés sikertelen:', result.error);
       }

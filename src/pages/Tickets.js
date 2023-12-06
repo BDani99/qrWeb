@@ -1,4 +1,3 @@
-// Tickets.js
 import React, { useState, useEffect } from 'react';
 import QRCode from 'react-qr-code';
 import getTicketsApi from '../api/tickets';
@@ -79,6 +78,13 @@ const Tickets = () => {
                       style={{ width: '65%', height: '65%' }}
                     />
                   </div>
+                  {ticket.event_image && (
+                    <img
+                      src={`data:image/png;base64,${ticket.event_image}`}
+                      alt="Event"
+                      className="ticket-image"
+                    />
+                  )}
                 </div>
               </div>
             ))}

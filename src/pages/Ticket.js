@@ -2,7 +2,7 @@
 import React from 'react';
 import QRCode from 'react-qr-code';
 import getTicketApi from '../api/ticket.js';
-import '../styles/Tickets.css';
+import '../styles/Ticket.css';
 
 const TicketDetails = ({ id }) => {
   const [ticketData, setTicketData] = React.useState(null);
@@ -48,19 +48,25 @@ const TicketDetails = ({ id }) => {
   }
 
   return (
-    <div>
+    <div className='ticket-content'>
+    {ticketData.event_image && (
+        <img
+          src={`data:image/png;base64,${ticketData.event_image}`}
+          alt="Event"
+          className="event-image"
+        />
+      )}
       <h1>{ticketData.name}</h1>
-      <p>{ticketData.event_date} - {ticketData.event_location}</p>
-      <p>Event Image: {ticketData.event_image}</p>
-      <p>Event Price: {ticketData.event_price}</p>
-      <p>User Name: {ticketData.user_name}</p>
-      <p>Date of Buying: {ticketData.dateOfBuyig}</p>
-      <p>User Name: {ticketData.user_name}</p>
-      <div className="qr-code">
-            <QRCode
-                value={ticketData.qrcode}
-                style={{ width: '65%', height: '65%' }}
-            />
+      <p>A koncert időpontja: {ticketData.event_date}</p>
+      <p>A koncert helyszíne: {ticketData.event_location}</p>
+      <p>Ár: {ticketData.event_price} Ft</p>
+      <p>Vásárló neve: {ticketData.user_name}</p>
+      <p>Vásárlás dátuma: {ticketData.dateOfBuyig}</p>
+      <div className="ticket-qr">
+        <QRCode
+          value={ticketData.qrcode}
+          style={{ width: '20%'}}
+        />
       </div>
     </div>
   );

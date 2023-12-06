@@ -1,68 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import api from '../api/me';
+import React, { useState, useEffect } from 'react';
+import getCurrentUser from '../api/me';
+import '../styles/Profile.css';
 
 const Profile = () => {
   const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const accessToken = sessionStorage.getItem('accessToken');
-        const userId = sessionStorage.getItem('userId'); // Új sor: userId lekérése a sessionStorage-ból
-        console.log("token: " + accessToken)
-        
-        if (!accessToken) {
-          setError('Access token not available');
-          setLoading(false);
-          return;
-        }
+    const accessToken = sessionStorage.getItem('accessToken');
+    const userId = sessionStorage.getItem('userId');
 
-        const result = await api.getCurrentUser(accessToken, userId); // Módosítás: userId paraméter átadása a getCurrentUser függvénynek
-        
+    if (!accessToken || !userId) {
+      setError('Access token or user ID not found');
+      return;
+    }
+
+    const fetchUserData = async () => {
+      try {
+        const result = await getCurrentUser(accessToken, userId);
+
         if (result.success) {
           setUserData(result.user);
-          
         } else {
-          setError(result.error || 'Unknown error');
+          setError(result.error);
         }
-
-        setLoading(false);
       } catch (error) {
-        console.error('Hiba a profil adatok lekérdezésekor:', error);
-        setError('Hiba a szerverrel való kommunikáció során');
-        setLoading(false);
+        console.error('Error fetching user data:', error);
+        setError('Error fetching user data');
       }
     };
 
-    fetchData();
+    fetchUserData();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const renderProfileFields = () => {
+    return (
+      <div className="Profile">
+        <div>
+          <label htmlFor="email">Email:</label>
+          <input type="text" id="email" value={userData.email} readOnly />
+        </div>
+        <div>
+          <label htmlFor="name">Név:</label>
+          <input type="text" id="name" value={userData.name} readOnly />
+        </div>
+        <div>
+          <label htmlFor="dateOfBirth">Születési dátum:</label>
+          <input type="text" id="dateOfBirth" value={userData.dateOfBirth} readOnly />
+        </div>
+        <div>
+          <label htmlFor="placeOfBirth">Születési hely:</label>
+          <input type="text" id="placeOfBirth" value={userData.placeOfBirth} readOnly />
+        </div>
+        <div>
+          <label htmlFor="address">Lakcím:</label>
+          <input type="text" id="address" value={userData.address} readOnly />
+        </div>
+        <button onClick={() => alert('Mentés gombra kattintva!')}>Mentés</button>
+      </div>
+    );
+  };
 
   if (error) {
     return <div>Error: {error}</div>;
   }
 
   if (!userData) {
-    return <div>No user data available</div>;
+    return <div>Loading...</div>;
   }
 
   return (
-    <div className="profile-container">
-      <h1 className="title">Profil</h1>
-      <div className="line"></div>
-      <div className="profile-info">
-        <p>ID: {userData.id}</p>
-        <p>Email: {userData.email}</p>
-        <p>Name: {userData.name}</p>
-        <p>Date of Birth: {userData.dateOfBirth}</p>
-        <p>Address: {userData.address}</p>
-        <p>Place of Birth: {userData.placeOfBirth}</p>
-      </div>
+    <div>
+      <h1 className='title'>Profil</h1>
+      {renderProfileFields()}
     </div>
   );
 };

@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { BiPlus, BiMinus } from 'react-icons/bi';
-import QRCode from 'qrcode.react';
 import '../styles/Buying.css';
 
 const Buying = () => {
   const [ticketCount, setTicketCount] = useState(1);
-  const [ticketIds, setTicketIds] = useState([]);
+  const [setTicketIds] = useState([]);
   const [isPurchased, setIsPurchased] = useState(false);
 
   const incrementTicketCount = () => {
@@ -30,19 +29,7 @@ const Buying = () => {
   return (
     <div className="buying-form">
       {isPurchased ? (
-        <div>
         <div className='successful'>Sikeres vásárlás</div>
-        {ticketIds.map((ticketId, index) => (
-            <div className='asd' key={index}>
-            <div className='image'>kép</div>
-            <div className='kinfo'>
-            <div>koncert neve</div>
-            <div>koncert időpontja</div>
-        </div>
-    <QRCode className='qrkod' value={ticketId} />
-  </div>
-))}
-        </div>
       ) : (
         <>
         <div className="db">

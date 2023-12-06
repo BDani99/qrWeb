@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { fetchEventDetails } from '../api/eventDetails.js';
 import { BiPlus, BiMinus } from 'react-icons/bi';
-import QRCode from 'qrcode.react';
 import purchaseTickets from '../api/buy.js';
 import '../styles/Details.css';
 
 const Details = () => {
-  const history = useHistory();
   const { id } = useParams();
   const [eventDetails, setEventDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   const [ticketCount, setTicketCount] = useState(1);
-  const [ticketIds, setTicketIds] = useState([]);
   const [isPurchased, setIsPurchased] = useState(false);
+  // eslint-disable-next-line
+  const [ticketIds, setTicketIds] = useState([]);
 
   const user_id = sessionStorage.getItem('userId');
   const accessToken = sessionStorage.getItem('accessToken');
@@ -42,7 +41,7 @@ const Details = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [id, accessToken]);
 
   useEffect(() => {
     if (isPurchased) {
@@ -74,6 +73,11 @@ const Details = () => {
   };
 
   const handlePurchase = async () => {
+    if (!user_id) {
+      setError("User not logged in. Unable to make a purchase.");
+      return;
+    }
+
     const purchaseResults = [];
 
     for (let i = 0; i < ticketCount; i++) {
@@ -103,44 +107,46 @@ const Details = () => {
     <div className="valami">
       {eventDetails && (
         <>
-          <h1>{eventDetails.name}</h1>
-          <p>Dátum: {eventDetails.dateOfEvent}</p>
-          <p>Helyszín: {eventDetails.location}</p>
+          {eventDetails.image && (
+            <img
+                src={`data:image/png;base64,${eventDetails.image}`}
+                alt="Event Cover"
+                className="cover-image"
+            />
+          )}
+          <div className='cont'>
+            <h1>{eventDetails.name}</h1>
+            <p>A koncert dátuma: {eventDetails.dateOfEvent}</p>
+            <p>A koncert helyszíne: {eventDetails.location}</p>
+            <p className='description'>{eventDetails.description}</p>
+          </div>
         </>
       )}
-      <div className="buying-form">
-        {isPurchased ? (
-          <div>
-            <div className='successful'>Sikeres vásárlás</div>
-            {ticketIds.map((ticketId, index) => (
-              <div className='asd' key={index}>
-                <div className='image'>kép</div>
-                <div className='kinfo'>
-                  <div>{eventDetails.name}</div>
-                  <div>{eventDetails.dateOfEvent}</div>
-                </div>
-                <QRCode className='qrkod' value={ticketId} />
+      {isPurchased ? (
+        <div className='successful'>Sikeres vásárlás</div>
+      ) : (
+        <>
+          {user_id ? (
+            <div>
+              <div className="db">
+                <p>{eventDetails.name} jegy db:</p>
+                <button onClick={decrementTicketCount}>
+                  <BiMinus />
+                </button>
+                <span>{ticketCount}</span>
+                <button onClick={incrementTicketCount}>
+                  <BiPlus />
+                </button>
               </div>
-            ))}
-          </div>
-        ) : (
-          <>
-            <div className="db">
-              <p>{eventDetails.name}</p>
-              <button onClick={decrementTicketCount}>
-                <BiMinus />
-              </button>
-              <span>{ticketCount}</span>
-              <button onClick={incrementTicketCount}>
-                <BiPlus />
+              <button className="buy-button" onClick={handlePurchase}>
+                Vásárlás
               </button>
             </div>
-            <button className="buy-button" onClick={handlePurchase}>
-              Vásárlás
-            </button>
-          </>
-        )}
-      </div>
+          ) : (
+            <div className="login-message"> A vásárláshoz jelentkezzen be.</div>
+          )}
+        </>
+      )}
     </div>
   );
 };

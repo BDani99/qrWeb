@@ -26,11 +26,23 @@
 
 .ticket-text p{
   padding: 5px;
+  margin-left: 80px;
 }
 
 .qr-code {
   position: absolute;
   top: 50%;
-  right: 0px;
+  right: -20px;
   transform: translateY(-50%);
+}
+
+.ticket-image {
+  width: 300px;
+  margin-left: 20px;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%);
+  overflow: hidden;
 }

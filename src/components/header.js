@@ -10,6 +10,8 @@ const Header = () => {
   const handleLogout = async () => {
     const userId = sessionStorage.getItem('userId');
     const accessToken = sessionStorage.getItem('accessToken');
+    console.log("token: " + accessToken);
+    console.log("id: " + userId);
 
     try {
       const result = await logoutApi(userId, accessToken);
@@ -19,6 +21,8 @@ const Header = () => {
 
         sessionStorage.removeItem('userId');
         sessionStorage.removeItem('accessToken');
+        console.log("removedtoken: " + accessToken);
+        console.log("removedid: " + userId);
 
         history.push('/login');
       } else {

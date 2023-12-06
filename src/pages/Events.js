@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import fetchEvents from '../api/events';
 import { Link } from 'react-router-dom';
-import '../styles/Events.css'
+import '../styles/Events.css';
 
 const Events = () => {
   const [events, setEvents] = useState([]);
@@ -40,21 +40,26 @@ const Events = () => {
 
   return (
     <div>
-    <h1 className="title">Események</h1>
-    <div className="events-container">
-      <div className="events-list">
-        {events.map((event) => (
-          <Link to={`/details/${event.id}`} key={event.id} className="content">
-            <div className="event-item">
-              <p>{event.name}</p>
-              <p>{event.dateOfEvent} - {event.location}</p>
-              <p>{event.description}</p>
-
-            </div>
-          </Link>
-        ))}
+      <h1 className="title">Események</h1>
+      <div className="events-container">
+        <div className="events-list">
+          {events.map((event) => (
+            <Link to={`/details/${event.id}`} key={event.id} className="content">
+              <div className="event-item">
+                {event.image && (
+                  <img
+                    src={`data:image/png;base64,${event.image}`}
+                    alt="Event Image"
+                    className="event-image"
+                  />
+                )}
+                <p>{event.name}</p>
+                <p>{event.dateOfEvent} - {event.location}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
     </div>
   );
 };

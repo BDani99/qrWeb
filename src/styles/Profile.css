@@ -1,0 +1,45 @@
+body {
+    color: white;
+  }
+  
+  .Profile {
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.6);
+    margin-top: 50px;
+    border-radius: 10px;
+  }
+  
+  .Profile div {
+    margin-bottom: 15px;
+  }
+  
+  .Profile label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .Profile input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+  }
+  
+  .Profile button {
+    background-color: #6ac054;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .Profile button:hover {
+    background-color: #5aa941;
+  }
+  
