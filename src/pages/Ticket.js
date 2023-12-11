@@ -1,4 +1,4 @@
-// TicketDetails.js
+
 import React from 'react';
 import QRCode from 'react-qr-code';
 import getTicketApi from '../api/ticket.js';
@@ -49,10 +49,10 @@ const TicketDetails = ({ id }) => {
 
   return (
     <div className='ticket-content'>
-    {ticketData.event_image && (
+      {ticketData.event_image && (
         <img
           src={`data:image/png;base64,${ticketData.event_image}`}
-          alt="Event"
+          alt="Esemény"
           className="event-image"
         />
       )}
@@ -61,11 +61,10 @@ const TicketDetails = ({ id }) => {
       <p>A koncert helyszíne: {ticketData.event_location}</p>
       <p>Ár: {ticketData.event_price} Ft</p>
       <p>Vásárló neve: {ticketData.user_name}</p>
-      <p>Vásárlás dátuma: {ticketData.dateOfBuyig}</p>
       <div className="ticket-qr">
         <QRCode
           value={ticketData.qrcode}
-          style={{ width: '20%'}}
+          style={{ width: '20%' }}
         />
       </div>
     </div>
