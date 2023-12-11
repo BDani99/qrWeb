@@ -138,6 +138,7 @@ const Details = () => {
                   <BiPlus />
                 </button>
               </div>
+              <div>Ár: {(eventDetails.price)*ticketCount} Ft.</div>
               <button className="buy-button" onClick={handlePurchase}>
                 Vásárlás
               </button>

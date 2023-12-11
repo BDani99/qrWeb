@@ -59,7 +59,6 @@ const Tickets = () => {
       <h1 className="title">Saját Jegyek</h1>
       <div className="ticket-container">
         {selectedTicket ? (
-          // Display TicketDetails for the selected ticket
           <TicketDetails id={selectedTicket} />
         ) : (
           <ul>

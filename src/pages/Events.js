@@ -55,6 +55,7 @@ const Events = () => {
                 )}
                 <p>{event.name}</p>
                 <p>{event.dateOfEvent} - {event.location}</p>
+                <p>Ár: {event.price} Ft.</p>
               </div>
             </Link>
           ))}
